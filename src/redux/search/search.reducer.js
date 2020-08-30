@@ -4,7 +4,7 @@ const INITIAL_STATE = {
     searchItem: [],
     isFetching: false,
     errorMessage : undefined,
-    tt: true
+    
 }
 
 const searchReducer = (state = INITIAL_STATE, action) => {
@@ -20,7 +20,7 @@ const searchReducer = (state = INITIAL_STATE, action) => {
         ...state,
         searchItem : action.payload['recipes'],
         isFetching: false,
-        tt: false
+       
     }
     case SearchActionTypes.SEARCH_ITEM_ERROR : 
     return {
@@ -28,7 +28,7 @@ const searchReducer = (state = INITIAL_STATE, action) => {
         searchItem: undefined,
         errorMessage : action.payload,
         isFetching: false,
-        tt: true
+        
         
     }
     default: 

@@ -9,9 +9,9 @@ const Likes = ({items,display}) => (
 
 
     <div className="likes">
-                <div class="likes__field">
+                <div className="likes__field">
                     {
-                         items.length == 0  ?  null : <Heart className="likes__icon"/> 
+                         items.length === 0  ?  null : <Heart className="likes__icon"/> 
                     }
                     
                     
@@ -19,7 +19,7 @@ const Likes = ({items,display}) => (
                 <div className="likes__panel">
                     <div className="likes__list">
                       {   
-                      items.map(item => <LikeItem item = {item}/>)
+                      items.map(item => <LikeItem key={item.recipe_id} item = {item}/>)
                       }
                         
                         

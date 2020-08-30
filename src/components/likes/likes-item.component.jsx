@@ -7,7 +7,7 @@ import {fetchRecipeAsync} from '../../redux/recipe/recipe.action'
 const LikeItem = ({item,fetchRecipeAsync}) => {
     const {image_url,publisher,title,recipe_id} = item
     
-                           return  (<a className="likes__link" href='#' onClick={() => fetchRecipeAsync(recipe_id)}>
+                           return  (<div className="likes__link"  onClick={() => fetchRecipeAsync(recipe_id)}>
                                 <figure className="likes__fig">
                                     <img src={image_url} alt="Test"/>
                                 </figure>
@@ -15,7 +15,7 @@ const LikeItem = ({item,fetchRecipeAsync}) => {
 <h4 className="likes__name">{title}</h4>
                                     <p className="likes__author">{publisher}</p>
                                 </div>
-                            </a>)
+                            </div>)
                         
 }
 

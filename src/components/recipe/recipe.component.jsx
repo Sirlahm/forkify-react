@@ -19,7 +19,7 @@ const Recipe = ({trya}) => (
 
 
     
-const mapStateToProps = ({recipe: {trya}}) =>( {
+const mapStateToProps = ({recipe: {searchItem,trya}}) =>( {
     trya
     })
 export default connect(mapStateToProps)(Recipe)

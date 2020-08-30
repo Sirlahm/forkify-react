@@ -7,7 +7,7 @@ import {fetchRecipeAsync} from '../../redux/recipe/recipe.action'
 const SearchItem =({search,fetchRecipeAsync,searchItem}) => {
  const {title,publisher,image_url,recipe_id} = search
 
-    return <a className={`${recipe_id === searchItem.recipe_id? 'results__link--active' : ''} results__link `} href='#' onClick={() => fetchRecipeAsync(recipe_id)}>
+    return <div className={`${recipe_id === searchItem.recipe_id? 'results__link--active' : ''} results__link `}  onClick={() => fetchRecipeAsync(recipe_id)}>
         <figure className="results__fig">
         <img src={image_url}alt="Test"/>
     </figure>
@@ -15,7 +15,7 @@ const SearchItem =({search,fetchRecipeAsync,searchItem}) => {
         <h4 className="results__name">{title}.</h4>
 <p className="results__author">{publisher}</p>
     </div>
-    </a>
+    </div>
 }
 
 const mapDispatchToProps = dispatch => ({

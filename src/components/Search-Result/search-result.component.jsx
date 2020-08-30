@@ -42,14 +42,14 @@ import SearchItem from '../search-item/search-item.component'
 
   componentDidMount() {
     this.receivedData()
-    // console.log('COP')
-    console.log(this.state)
+   
+    
   }
  
 render() {
 
-  const {searchItem,tt} = this.props;
-  console.log(this.state)
+  const {searchItem} = this.props;
+ 
   
   return (
     
@@ -84,9 +84,9 @@ render() {
 }
 
 
-const mapStateToProps = ({search: {searchItem,tt}}) =>( {
+const mapStateToProps = ({search: {searchItem}}) =>( {
 searchItem ,
-tt
+
 })
 
 

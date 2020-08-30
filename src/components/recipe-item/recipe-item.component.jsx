@@ -15,7 +15,7 @@ import {ReactComponent as HeartLine} from '../../assets/heart-regular.svg'
 // import Ingredient from '../ingredient/ingredient.component'
 const RecipeItem = ({searchItem, getLikeItem,items,getIngredientItem,removeIngredientItem}) => {
     
-    const {image_url,ingredients,publisher,title,publisher_url,recipe_id} = searchItem
+    const {image_url,ingredients,publisher,title,recipe_id,source_url} = searchItem
     
     return ( 
     <div>
@@ -25,23 +25,23 @@ const RecipeItem = ({searchItem, getLikeItem,items,getIngredientItem,removeIngre
                 <span>{title}</span>
                 </h1>
             </figure>
-            <div class="recipe__details">
-                <div class="recipe__info">
+            <div className="recipe__details">
+                <div className="recipe__info">
                     <StopWatch className="recipe__info-icon"/>
                     
-                    <span class="recipe__info-data recipe__info-data--minutes">45</span>
-                    <span class="recipe__info-text"> minutes</span>
+                    <span className="recipe__info-data recipe__info-data--minutes">45</span>
+                    <span className="recipe__info-text"> minutes</span>
                 </div>
-                <div class="recipe__info">
+                <div className="recipe__info">
                 <Male className="recipe__info-icon fill"/>
-                    <span class="recipe__info-data recipe__info-data--people">4</span>
-                    <span class="recipe__info-text"> servings</span>
+                    <span className="recipe__info-data recipe__info-data--people">4</span>
+                    <span className="recipe__info-text"> servings</span>
 
-                    <div class="recipe__info-buttons">
-                        <button class="btn-tiny">
+                    <div className="recipe__info-buttons">
+                        <button className="btn-tiny">
                             <ZoomOut className="fill"/>
                         </button>
-                        <button class="btn-tiny">
+                        <button className="btn-tiny">
                         <ZoomIn className="fill"/>
                         </button>
                     </div>
@@ -62,7 +62,7 @@ const RecipeItem = ({searchItem, getLikeItem,items,getIngredientItem,removeIngre
                 <div className="recipe__ingredients">
                      <div className="recipe__ingredient-list">
                      {
-                ingredients? ingredients.map(ingredient => <div className="recipe__item">
+                ingredients? ingredients.map(ingredient => <div key={ingredient.recipe_id} className="recipe__item">
                     <CheckMark className="recipe__icon"/> 
                     <p className="recipe__count">{ingredient}</p>
                     
@@ -92,7 +92,7 @@ const RecipeItem = ({searchItem, getLikeItem,items,getIngredientItem,removeIngre
                     This recipe was carefully designed and tested by 
                     <span className="recipe__by"> {publisher} </span>. Please check out directions at their website.
                 </p>
-                <a className="btn-small recipe__btn" href={publisher_url} target="_blank">
+                <a className="btn-small recipe__btn" href={source_url} >
                     <span>Directions</span>
                     <Point className="search__icon"/>
                     
@@ -116,86 +116,4 @@ const mapStateToProps = ({recipe: {searchItem},likes : {items}}) =>( {
     items
     })
 
-
-    export default connect(mapStateToProps,mapDispatchToProps)(RecipeItem)
-
-
-    
-    
-//     <div class="recipe__ingredients">
-//     <ul class="recipe__ingredient-list">
-//         <li class="recipe__item">
-//             <svg class="recipe__icon">
-//                 <use href="img/icons.svg#icon-check"></use>
-//             </svg>
-//             <div class="recipe__count">1000</div>
-//             <div class="recipe__ingredient">
-//                 <span class="recipe__unit">g</span>
-//                 pasta
-//             </div>
-//         </li>
-
-//         <li class="recipe__item">
-//             <svg class="recipe__icon">
-//                 <use href="img/icons.svg#icon-check"></use>
-//             </svg>
-//             <div class="recipe__count">1/2</div>
-//             <div class="recipe__ingredient">
-//                 <span class="recipe__unit">cup</span>
-//                 ricotta cheese
-//             </div>
-//         </li>
-
-//         <li class="recipe__item">
-//             <svg class="recipe__icon">
-//                 <use href="img/icons.svg#icon-check"></use>
-//             </svg>
-//             <div class="recipe__count">1</div>
-//             <div class="recipe__ingredient">
-//                 <span class="recipe__unit"></span>
-//                 can of tomatoes, whole or crushed
-//             </div>
-//         </li>
-
-
-//         <li class="recipe__item">
-//             <svg class="recipe__icon">
-//                 <use href="img/icons.svg#icon-check"></use>
-//             </svg>
-//             <div class="recipe__count">1</div>
-//             <div class="recipe__ingredient">
-//                 <span class="recipe__unit"></span>
-//                 can tuna packed in olive oil
-//             </div>
-//         </li>
-
-//         <li class="recipe__item">
-//             <svg class="recipe__icon">
-//                 <use href="img/icons.svg#icon-check"></use>
-//             </svg>
-//             <div class="recipe__count">1/2</div>
-//             <div class="recipe__ingredient">
-//                 <span class="recipe__unit">cup</span>
-//                 grated parmesan cheese
-//             </div>
-//         </li>
-
-//         <li class="recipe__item">
-//             <svg class="recipe__icon">
-//                 <use href="img/icons.svg#icon-check"></use>
-//             </svg>
-//             <div class="recipe__count">1/4</div>
-//             <div class="recipe__ingredient">
-//                 <span class="recipe__unit">cup</span>
-//                 fresh basil, chopped or torn
-//             </div>
-//         </li>
-//     </ul>
-
-//     <button class="btn-small recipe__btn">
-//         <svg class="search__icon">
-//             <use href="img/icons.svg#icon-shopping-cart"></use>
-//         </svg>
-//         <span>Add to shopping list</span>
-//     </button>
-// </div>
+ export default connect(mapStateToProps,mapDispatchToProps)(RecipeItem)

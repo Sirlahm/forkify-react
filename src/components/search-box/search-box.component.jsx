@@ -20,7 +20,7 @@ class SearchBox extends React.Component {
         this.setState({search: ''})
     }
     handleChange = event => {
-         console.log(event.target)
+         
         const {value} = event.target
         this.setState({search: value})
     }
@@ -50,12 +50,3 @@ const mapDispatchToProps = dispatch => ({
   
 export default connect(null, mapDispatchToProps)(SearchBox)
 
-{/* <form class="search">
-<input type="text" class="search__field" placeholder="Search over 1,000,000 recipes...">
-<button class="btn search__btn">
-    <svg class="search__icon">
-        <use href="img/icons.svg#icon-magnifying-glass"></use>
-    </svg>
-    <span>Search</span>
-</button>
-</form> */}

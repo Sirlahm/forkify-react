@@ -23,7 +23,7 @@ export const fetchItemAsync = (search) => {
         
 
         dispatch(fetchItemStart())
-        console.log(`https://forkify-api.herokuapp.com/api/search?&q=${search}`)
+       
          fetch(`https://forkify-api.herokuapp.com/api/search?&q=${search}`).then(response => response.json())
           .then(data => dispatch(fetchItemSuccess(data)))
         .catch(error => { alert('N0 SEARCH FOUND')
